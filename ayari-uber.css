@@ -1,0 +1,403 @@
+/*****************************/
+/*                           */
+/*    Jaxify's Uberstyle     */
+/*  look but don't steal :)  */
+/*                           */
+/*****************************/
+
+
+/*** IMPORTS&KEYFRAMES ***/
+
+@import url('https://fonts.googleapis.com/css?family=Bangers|Oswald');
+
+@font-face {
+	font-family: 'Komika'; 
+	src: url('https://files.gamebanana.com/bitpit/komika_display.ttf');
+}
+
+@font-face {
+	font-family: 'Slapstick'; 
+	src: url('https://files.gamebanana.com/bitpit/sf_slapstick_comic.ttf');
+}
+
+@font-face {
+	font-family: 'FightingSpirit';
+	src: url('https://files.gamebanana.com/bitpit/fighting_spirit_2.ttf');
+}
+
+@font-face {
+	font-family: 'Earwig';
+	src: url('https://files.gamebanana.com/bitpit/earwig_factory_rg.ttf');
+}
+
+
+
+/**  SOME VARIABLES **/
+
+root: {
+	--personared: #d92323;
+	--bouncy: .2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/** NAV **/
+
+#PrimaryNav {
+	border: none;
+}
+
+#PrimaryNav::before {
+	display: block;
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 60%;
+	z-index: -1;
+	background: #000;
+}
+
+#PrimaryNav::after {
+	display: block;
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 70%;
+	z-index: -1;
+	background: url(https://files.gamebanana.com/bitpit/header-wrapper-bg.png);
+	background-position: bottom left;
+	background-size: auto;
+	background-repeat: repeat-x;
+	height: 74px;
+	pointer-events: none;
+}
+
+#PrimaryNav module {
+	border: none;
+}
+
+#SecondaryNav {
+	background: none;
+	overflow: visible;
+}
+
+#SecondaryNav>wrapper module {
+	background: #fff;
+}
+
+#SecondaryNav>wrapper module icon {
+	transition: .2s ease-out;
+	filter: grayscale(1);
+}
+
+#SecondaryNav>wrapper module.Selected icon {
+	background: #fff;
+	box-shadow: 0px 0px 0px 2px #000;
+	transform: scale(1.2) rotate(-8deg);
+	transition: .2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+	z-index: 1;
+	position: relative;
+}
+
+#SecondaryNav module.Selected pane {
+	background: #000;
+}
+
+#SecondaryNav header > strong {
+	font-family: "Slapstick";
+	color: #fff;
+}
+
+/** HEADER **/
+
+#MainContentHeader {
+	background: url(https://files.gamebanana.com/bitpit/joker-critical-hit.png) #d92323;
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: 75% top;
+	background-attachment: fixed;
+}
+
+#PageTitle {
+	font-family: "Slapstick";
+	color: #fff;
+	font-size: 10em;
+	line-height: 1em;
+	padding-left: 15%;
+	text-shadow: 8px 8px 0 #000;
+}
+
+#Breadcrumb {
+	border-radius: 0;
+	background: #000;
+}
+
+#SubNavigator {
+	position: relative;
+	z-index: 1;
+	border-bottom: 0;
+}
+
+#SubNavigator::before {
+	display: block;
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -15px;
+	bottom: 0;
+	/* z-index: -1; */
+	background: url(https://files.gamebanana.com/bitpit/header-wrapper-bg.png);
+	background-position: bottom left;
+	background-size: auto;
+	background-repeat: repeat-x;
+	height: 42px;
+	pointer-events: none;
+	transform: scale(-1);
+}
+
+#SubNavigator::after {
+	display: block;
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: -15px;
+	z-index: -1;
+	background: url(https://files.gamebanana.com/bitpit/header-wrapper-bg.png);
+	background-position: bottom left;
+	background-size: auto;
+	background-repeat: repeat-x;
+	/* height: 61px; */
+	pointer-events: none;
+}
+
+#SubNavigator .ActiveEntry a {
+	color: #000 !important;
+	text-shadow: none;
+}
+
+#SubNavigator .DropdownMenuSubNavigator {
+	background: none;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+}
+
+#SubNavigator .DropdownMenuSubNavigator>li {
+	margin: 0 .5em;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: none;
+	border: 0;
+	transition: .2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+#SubNavigator .DropdownMenuSubNavigator>li a {
+	color: #fff;
+	text-shadow: none;
+	opacity: 1;
+}
+
+#SubNavigator li div {
+	opacity: 1;
+}
+
+#SubNavigator .DropdownMenuSubNavigator>li:hover, #SubNavigator .ActiveEntry {
+	background: #fff;
+	border: 0;
+	box-shadow: 0 0 0px 8px #fff, 0px 0px 0px 10px #000, 4px 4px 0px 10px #000;
+	transform: rotate(-4deg);
+	transition: .2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+	margin-bottom: 0;
+}
+
+#SubNavigator .DropdownMenuSubNavigator>li.TitleOnly:hover {
+	color: #000;
+}
+
+#SubNavigator .DropdownMenuSubNavigator>li:hover a {
+	text-shadow: none;
+	color: #000;
+}
+
+#SubNavigator .DropdownMenuSubNavigator>li ul>li a:hover {
+	color: #fff !important;
+}
+
+#SubNavigator .DropdownMenuSubNavigator>li ul {
+	background: #fff;
+	border: 0;
+	box-shadow:  0px 0px 0px 2px #000, 4px 4px 0px 2px #000;
+	overflow: visible;
+	max-height: 600px;
+}
+
+#SubNavigator .DropdownMenuSubNavigator>li ul>li:hover {
+	background: #d92323;
+	box-shadow: 0px 0px 0px 2px #000;
+}
+
+#SubNavigator .DropdownMenuSubNavigator>li ul>li {
+	background: none;
+}
+
+#SubNavigator ul > li {
+	font-family: 'Slapstick';
+}
+
+#SubNavigator li spriteIcon {
+	display: none;
+}
+
+/** BODY **/
+
+body {	
+	font-family: 'Komika';
+}
+
+body a {
+	color: #fff;
+	text-shadow: 2px 2px 0px black;
+}
+
+body a:hover {
+	color: #fff;
+}
+
+#BodyWrapper {
+	background: #d92323;
+}
+
+#MainContent {
+	background: none;
+}
+
+#ContentGrid row>column {
+	background: url('https://files.gamebanana.com/bitpit/pngegg.png') top center no-repeat !important;
+	background-size: contain !important;
+	padding: 0;
+}
+
+.PageModule {
+	background: #000;
+	border: none;
+	margin-top: 0;
+}
+
+#IdentityModule {
+	background: none;
+	margin-top: 1em;
+	padding: 0;
+}
+
+#IdentityModule .Content {
+	display: flex;
+	flex-wrap: wrap;
+	height: 600px;
+	padding: 0;
+	margin-left: 136px;
+	flex-direction: column;
+	justify-content: center;
+	align-content: flex-start;
+	align-items: center;
+}
+
+#IdentityModule .Content br {
+	display: none;
+}
+
+#IdentityModule .Avatar {
+	height: 600px;
+	margin: 0;
+	position: absolute;
+	right: 96px;
+	pointer-events: none;
+	/* box-shadow: 0px 0px 0px 4px #fff, 0px 0px 0px 8px #000, 6px 6px 0px 8px #000; */
+}
+
+#IdentityModule .Avatar img {
+	content: url('https://files.gamebanana.com/bitpit/joker2.png');
+	filter: drop-shadow(8px 8px 0px black);
+}
+
+#IdentityModule .MemberLink {
+	background: #fff;
+	box-shadow: 0px 0px 0px 6px #000, 4px 4px 0px 10px #000;
+	padding: .2em 1em;
+	transform: translateX(-34px) rotate(-3deg);
+	z-index: 1;
+}
+
+#IdentityModule .MemberLink::after {
+	content: "WAZZUP";
+	font-family: 'Slapstick';
+	font-weight: bold;
+	font-size: 3em;
+	color: #000;
+	text-shadow: none;
+}
+
+#IdentityModule .MemberLink img {
+	display: none;
+}
+
+#IdentityModule .UserTitle {
+	background: #000;
+	box-shadow: 0px 0px 0px 9px #000;
+	padding: 0 .4em;
+	font-size: 2em;
+	color: #fff;
+	transform: translateX(-40px);
+}
+
+#IdentityModule .KeyInfo {
+	margin-top: .8em;
+	padding: 0 .5em;
+	transform: translateX(12px) rotate(2deg);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	text-align: end;
+}
+
+#IdentityModule .KeyInfo .IdNumber {
+	margin: .3em 0;
+	padding: .3em 3em;
+	background: #000;
+	box-shadow: 0 6px 0 0 #000, 0 0 0 4px #fff, 0 -9px 0 10px #000;
+	transform: translateX(-46px);
+	z-index: 1;
+}
+
+#IdentityModule .KeyInfo .IdNumber itemcount {
+	font-family: 'Earwig';
+	font-size: 2em;
+	color: #fff;
+}
+
+#IdentityModule .KeyInfo .JoinDate {
+	margin: 0;
+	padding: .3em 4em;
+	transform: translateX(-32px);
+	background: #000;
+	box-shadow: 0 0 0 4px #fff, -4px 4px 0 14px #000;
+	color: #fff;
+}
+
+#PostsListModule {
+	
+}
+
+.Posts {
+	overflow: scroll;
+}
+
+/** REMOVED **/
+
+#SubNavigator.Fixed {
+	display: none;
+}
