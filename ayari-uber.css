@@ -1,12 +1,14 @@
-/*****************************/
+/*___________________________*/
 /*                           */
 /*    Uberstyle by Ayari     */
-/*	  08/16/2024         */
-/*			     */
+/*        08/16/2024         */
+/*                           */
 /*       feel free to        */
 /*  look but don't steal :)  */
 /*                           */
-/*****************************/
+/*      All credits to       */
+/*  some of the images used  */
+/*___________________________*/
 
 
 /*** IMPORTS&KEYFRAMES ***/
@@ -15,22 +17,22 @@
 
 @font-face {
 	font-family: 'Komika'; 
-	src: url('https://files.gamebanana.com/bitpit/komika_display.ttf');
+	src: url('https://ayariraya.github.io/gamebanana-uberstyle/komika_display.ttf');
 }
 
 @font-face {
 	font-family: 'Slapstick'; 
-	src: url('https://files.gamebanana.com/bitpit/sf_slapstick_comic.ttf');
+	src: url('https://ayariraya.github.io/gamebanana-uberstyle/sf_slapstick_comic.ttf');
 }
 
 @font-face {
 	font-family: 'FightingSpirit';
-	src: url('https://files.gamebanana.com/bitpit/fighting_spirit_2.ttf');
+	src: url('https://ayariraya.github.io/gamebanana-uberstyle/fighting_spirit_2.ttf');
 }
 
 @font-face {
 	font-family: 'Earwig';
-	src: url('https://files.gamebanana.com/bitpit/earwig_factory_rg.ttf');
+	src: url('https://ayariraya.github.io/gamebanana-uberstyle/earwig_factory_rg.ttf');
 }
 
 
@@ -134,7 +136,7 @@ root: {
 
 #Breadcrumb {
 	border-radius: 0;
-	background: #000;
+	background: none;
 }
 
 #SubNavigator {
@@ -328,15 +330,21 @@ body a:hover {
 }
 
 #IdentityModule .MemberLink {
+	display: block;
 	background: #fff;
 	box-shadow: 0px 0px 0px 6px #000, 4px 4px 0px 10px #000;
 	padding: .2em 1em;
 	transform: translateX(-34px) rotate(-3deg);
 	z-index: 1;
+	animation: memberLinkFloat 1s ease-in-out infinite;
+}
+
+#IdentityModule .MemberLink:hover {
+	animation: .3s ease 0s forwards wiggle;
 }
 
 #IdentityModule .MemberLink::after {
-	content: "WAZZUP";
+	content: "HELLO";
 	font-family: 'Slapstick';
 	font-weight: bold;
 	font-size: 3em;
@@ -354,20 +362,28 @@ body a:hover {
 	padding: 0 .4em;
 	font-size: 2em;
 	color: #fff;
-	transform: translateX(-40px);
+	animation: userTitleFloat 1s ease-in-out infinite;
+}
+
+#IdentityModule .UserTitle:hover {
+	animation: .3s ease 0s forwards userTitleWiggle;
 }
 
 #IdentityModule .KeyInfo {
-	margin-top: .8em;
+	margin-top: -1.2em;
 	padding: 0 .5em;
-	transform: translateX(12px) rotate(2deg);
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
 	text-align: end;
+	animation: keyInfoFloat 1s ease-in-out infinite;
 }
 
-#IdentityModule .KeyInfo .IdNumber {
+#IdentityModule .KeyInfo:hover {
+	animation: .3s ease 0s forwards keyInfoWiggle;
+}
+
+#IdentityModule .KeyInfo li:nth-child(3) {
 	margin: .3em 0;
 	padding: .3em 3em;
 	background: #000;
@@ -376,13 +392,13 @@ body a:hover {
 	z-index: 1;
 }
 
-#IdentityModule .KeyInfo .IdNumber itemcount {
+#IdentityModule .KeyInfo li:nth-child(3) itemcount {
 	font-family: 'Earwig';
 	font-size: 2em;
 	color: #fff;
 }
 
-#IdentityModule .KeyInfo .JoinDate {
+#IdentityModule .KeyInfo li:nth-child(4) {
 	margin: 0;
 	padding: .3em 4em;
 	transform: translateX(-32px);
@@ -403,4 +419,91 @@ body a:hover {
 
 #SubNavigator.Fixed {
 	display: none;
+}
+
+.MemberLink indicator.Online {
+	display: none;
+}
+
+/** KEY FRAMES **/
+
+@keyframes wiggle {
+	0% {
+		transform: translateX(-34px) rotate(0deg);
+	}
+	33% {
+		transform: translateX(-34px) rotate(5deg);
+	}
+	66% {
+		transform: translateX(-34px) rotate(-5deg);
+	}
+	100% {
+		transform: translateX(-34px) rotate(-3deg);
+	}
+}
+
+@keyframes userTitleWiggle {
+	0% {
+		transform: translateX(-40px) rotate(0deg);
+	}
+	33% {
+		transform: translateX(-40px) rotate(5deg);
+	}
+	66% {
+		transform: translateX(-40px) rotate(-5deg);
+	}
+	100% {
+		transform: translateX(-40px);
+	}
+}
+
+@keyframes keyInfoWiggle {
+	0% {
+		transform: translateX(12px) rotate(0deg);
+	}
+	33% {
+		transform: translateX(12px) rotate(5deg);
+	}
+	66% {
+		transform: translateX(12px) rotate(-5deg);
+	}
+	100% {
+		transform: translateX(12px) rotate(2deg);
+	}
+}
+
+@keyframes memberLinkFloat {
+	0% {
+		transform: translatey(0px) translateX(-34px) rotate(-3deg);
+	}
+	50% {
+		transform: translatey(-2px) translateX(-34px) rotate(-3deg);
+	}
+	100% {
+		transform: translatey(0px) translateX(-34px) rotate(-3deg);
+	}
+}
+
+@keyframes userTitleFloat {
+	0% {
+		transform: translatey(0px) translateX(-40px);
+	}
+	50% {
+		transform: translatey(-1px) translateX(-40px);
+	}
+	100% {
+		transform: translatey(0px) translateX(-40px);
+	}
+}
+
+@keyframes keyInfoFloat {
+	0% {
+		transform: translatey(0px) translateX(12px) rotate(2deg);
+	}
+	50% {
+		transform: translatey(-1px) translateX(12px) rotate(2deg);
+	}
+	100% {
+		transform: translatey(0px) translateX(12px) rotate(2deg);
+	}
 }
